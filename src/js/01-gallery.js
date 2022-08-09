@@ -8,8 +8,6 @@ import { galleryItems } from './gallery-items';
 
 const galleryEl = document.querySelector('.gallery');
 
-galleryEl.addEventListener('click', showFullScreenPicture);
-
 const markupForGallery = createMarkupForGallery(galleryItems);
 
 function createMarkupForGallery(items) {
@@ -23,12 +21,5 @@ function createMarkupForGallery(items) {
 
 galleryEl.insertAdjacentHTML('beforeend', markupForGallery);
 
-function showFullScreenPicture(evt) {
-  evt.preventDefault();
+new SimpleLightbox('.gallery a');
 
-  if (evt.target.nodeName !== 'IMG') {
-    return;
-  }
-
-  new SimpleLightbox('.gallery a');
-}
